@@ -1,0 +1,168 @@
+$bg: #20202B;
+$bg-stations: #2A2A34;
+$bg-nav: #EEAE61;
+$font-color: #A3ACBE;
+$bg-footer: #22222B;
+
+@keyframes slideIn {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    height: 150px;
+    opacity: 1;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+.main {
+  margin: auto;
+  width: 320px;
+
+  .main__header {
+    margin: auto;
+    width: 320px;
+    background: $bg-nav;
+    text-transform: uppercase;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 81px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+
+    .main__btn-back,
+    .main__btn-power {
+      text-decoration: none;
+      background: transparent;
+      border: none;
+    }
+    .main__btn-back {
+      .main__btn-back-img {
+        width: 14px;
+        height: 26px;
+        margin-left: 20px;
+        margin-top: 4px;
+      }
+    }
+    .main__btn-power {
+      .main__btn-power-img {
+        width: 23px;
+        height: 26px;
+        margin-right: 20px;
+        margin-top: 1px;
+      }
+    }
+  }
+
+  .main__stations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 80px 0;
+    background-color: $bg-stations;
+    height: 100vh;
+
+    .main__station {
+      cursor: pointer;
+      color: $font-color;
+      border-bottom: 1px solid #4D505C;
+      width: 87%;
+      font-size: 22px;
+      margin-top: 18px;
+      padding-bottom: 18px;
+      z-index: 1;
+
+      .station {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+
+        .station__name {
+          height: 100%;
+        }
+
+        .station__freq {
+          height: 100%;
+          font-weight: 700;
+        }
+      }
+
+      .station__active {
+        height: 150px;
+        margin: 24px 0;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        animation: slideIn 500ms ease-in-out both;
+
+        .station__btn-minus,
+        .station__btn-plus {
+          text-decoration: none;
+          background: transparent;
+          border: none;
+        }
+        .minus-img,
+        .plus-img {
+          width: 35px;
+          height: 35px;
+        }
+        .station__img {
+          margin: 0 34px;
+          .station__img-image {
+            height: 145px;
+            width: 145px;
+            border: 1px solid $font-color;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    .main__station:last-child {
+      border-bottom: none;
+    }
+
+  }
+
+  .main__curr {
+    margin: auto;
+    background-color: $bg-footer;
+    height: 81px;
+    width: 320px;
+    border-top: 1px solid #4D505C;
+    z-index: 2;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .main__curr-played {
+      display: flex;
+      flex-direction: column;
+      color: #EDAE5F;
+      font-size: 12px;
+
+      .curr__station-name {
+        text-align: center;
+        color: #A1A7B5;
+        font-size: 22px;
+      }
+    }
+  }
+}
